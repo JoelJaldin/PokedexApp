@@ -1,0 +1,23 @@
+<h1>Pokemones</h1>
+<br>
+<% @pokemons.each do |pokemon| %>
+  <div> <h2> <%= pokemon[:name].capitalize %> </h2>
+  <h4>Weight:<%= pokemon[:weight] %></h4>
+
+  <% types = [] %>
+  <% pokemon[:types].each do |type| %>
+  <% types << type[:type][:name] %>
+  <% end %>
+  <h4>Types:<%= types.join(", ") %> </h4>
+
+  <% abilities = [] %>
+  <% pokemon[:abilities].each do |ability|%>
+  <% abilities << ability[:ability][:name] %>
+  <% end %>
+  <h4>Abilities:<%= abilities.join(", ") %> </h4>
+
+      <%= image_tag(pokemon[:photo]) %>
+<br>
+
+  </div>
+<% end %>
