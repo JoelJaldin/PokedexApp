@@ -1,0 +1,15 @@
+.background {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.236), rgba(0, 0, 0, 0.184)), url(pokedex_home.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .button_home {
+    position: absolute;
+    left: 43%;
+    top: 15%;
+  }

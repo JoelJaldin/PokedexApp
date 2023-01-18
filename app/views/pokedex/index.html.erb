@@ -1,25 +1,26 @@
 <h1>Pokemones</h1>
 <br>
+
 <% @pokemons.each do |pokemon| %>
   <div> <h2> <%= pokemon[:name].capitalize %> </h2>
-  <p><%= pokemon[:id] %></p>
-  <h4>Weight:<%= pokemon[:weight] %></h4>
-
+  <%= image_tag(pokemon[:photo]) %>
+  <h4>Weight: <%= pokemon[:weight] %></h4>
   <% types = [] %>
-  <% pokemon[:types].each do |type| %>
-  <% types << type[:type][:name] %>
-  <% end %>
-  <h4>Types:<%= types.join(", ") %> </h4>
 
+  <% pokemon[:types].each do |type| %>
+  <% types << type[:type][:name].capitalize %>
+  <% end %>
+
+  <h4>Types: <%= types.join(", ") %> </h4>
   <% abilities = [] %>
   <% pokemon[:abilities].each do |ability|%>
-  <% abilities << ability[:ability][:name] %>
+  <% abilities << ability[:ability][:name].capitalize %>
   <% end %>
-  <h4>Abilities:<%= abilities.join(", ") %> </h4>
 
-      <%= image_tag(pokemon[:photo]) %>
-      <a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">mas info</a>
+  <h4>Abilities: <%= abilities.join(", ") %> </h4>
+
+  <a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">mas info</a>
 <br>
-
-  </div>
+<br>
+</div>
 <% end %>
