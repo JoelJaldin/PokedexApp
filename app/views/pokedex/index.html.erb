@@ -1,26 +1,26 @@
 <h1>Pokemones</h1>
-<br>
 
+<div class="row row-cols-1 row-cols-md-3 g-4">
 <% @pokemons.each do |pokemon| %>
-  <div> <h2> <%= pokemon[:name].capitalize %> </h2>
-  <%= image_tag(pokemon[:photo]) %>
-  <h4>Weight: <%= pokemon[:weight] %></h4>
-  <% types = [] %>
-
-  <% pokemon[:types].each do |type| %>
-  <% types << type[:type][:name].capitalize %>
+  <div class="col">
+    <div class="card" style="width:25rem ; height:45rem;">
+      <%= image_tag(pokemon[:photo]) %>
+      <div class="card-body">
+        <p class="card-text"><p>Nº. <%= pokemon[:id] %></p></li></p>
+        <h5 class="card-title"><h5 class="card-title"><h2><%= pokemon[:name].capitalize %> </h2></h5></h5>
+        <p class="card-text"><% types = [] %>
+        <% pokemon[:types].each do |type| %>
+        <% types << type[:type][:name] %>
+        <% end %>
+        <h4>Types: <%= types.join(" and ") %> </h4></li>
+        <p class="card-text"><% abilities = [] %>
+        <% pokemon[:abilities].each do |ability|%>
+        <% abilities << ability[:ability][:name] %>
+        <% end %>
+        <h4>Abilities: <%= abilities.join(" and ") %> </h4></li></li></p>
+        <p class="card-text"><h4>Weight: <%= pokemon[:weight] %></h4></li></p>
+        <a href="#" class="card-link"><a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">Más info</a></a>
+      </div>
+    </div>
+  </div>
   <% end %>
-
-  <h4>Types: <%= types.join(", ") %> </h4>
-  <% abilities = [] %>
-  <% pokemon[:abilities].each do |ability|%>
-  <% abilities << ability[:ability][:name].capitalize %>
-  <% end %>
-
-  <h4>Abilities: <%= abilities.join(", ") %> </h4>
-
-  <a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">mas info</a>
-<br>
-<br>
-</div>
-<% end %>
