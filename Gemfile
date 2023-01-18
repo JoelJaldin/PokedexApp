@@ -9,9 +9,6 @@ gem "rails", "~> 7.0.4"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# bootstrap
-gem 'bootstrap', '~> 5.2', '>= 5.2.3'
-
 # HTTP API
 gem 'http', '~> 5.1', '>= 5.1.1'
 

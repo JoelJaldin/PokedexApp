@@ -2,6 +2,7 @@
 <br>
 <% @pokemons.each do |pokemon| %>
   <div> <h2> <%= pokemon[:name].capitalize %> </h2>
+  <p><%= pokemon[:id] %></p>
   <h4>Weight:<%= pokemon[:weight] %></h4>
 
   <% types = [] %>
@@ -17,6 +18,7 @@
   <h4>Abilities:<%= abilities.join(", ") %> </h4>
 
       <%= image_tag(pokemon[:photo]) %>
+      <a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">mas info</a>
 <br>
 
   </div>
