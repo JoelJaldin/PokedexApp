@@ -1,15 +1,15 @@
 <div class="container d-flex justify-content-center">
-  <div class="card m-0" style="width: 18rem;">
+  <div class="card m-0" style="width: 18rem">
     <%= image_tag(@poki[:photo]) %>
     <div class="card-body">
-      <h5 class="card-title"><%= @poki[:name] %></h5>
-      <p class="card-text"> Description: <%=@poki[:description] %></p>
+      <h1 class="card-title"><%= @poki[:name].capitalize %></h1>
+      <p class="card-text"> <h3>Description:</h3> <%=@poki[:description] %></p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">Weight: <%=@poki[:weight]%></li>
-      <li class="list-group-item">Types: <%=@poki[:types]%></li>
-      <li class="list-group-item">Abilities: <%=@poki[:abilities]%></li>
-      <li class="list-group-item">Evolution: <%=@poki[:evolution]%></li>
+      <li class="list-group-item"> <h3>Weight: </h3> <%=@poki[:weight]%></li>
+      <li class="list-group-item"><h3>Types: </h3> <%=@poki[:types]%></li>
+      <li class="list-group-item"><h3>Abilities: </h3><%=@poki[:abilities]%></li>
+      <li class="list-group-item"><h3>Evolution: </h3><%=@poki[:evolution]%></li>
     </ul>
     <div class="card-body">
     </div>

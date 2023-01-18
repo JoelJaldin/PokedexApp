@@ -20,7 +20,7 @@ class PokedexController < ApplicationController
       @pokemons << poki
     end
     puts @pokemons
-    @pokemons
+    @pokemons = Kaminari.paginate_array(@pokemons).page(params[:page]).per(9)
   end
 
   def show
@@ -52,7 +52,7 @@ class PokedexController < ApplicationController
   private
 
   def get_pokemons
-    response = HTTP.get('https://pokeapi.co/api/v2/pokemon?limit=10&offset=0')
+    response = HTTP.get('https://pokeapi.co/api/v2/pokemon?limit=27&offset=0')
     response = JSON.parse response, symbolize_names: true
 
   end

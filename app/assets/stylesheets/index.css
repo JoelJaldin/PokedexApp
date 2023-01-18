@@ -1,5 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,100,300,700,100italic,300italic,400italic,700italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
 h1 {
   text-align: center;
-  padding-bottom: 2%;
-  font-family: 'Courier New', Courier, monospace;
+  height: 250px;
+  text-decoration: underline;
+}
+
+.card {
+  width:25rem;
+  height:45rem;
+  background-color: #DBB234;
+  border-radius: 5%;
+  box-shadow: 10px 10px 40px -28px #000;
+  text-align: center
+}
+
+.paginate {
+  font-size: 50px;
+  margin-left: 50%;
 }

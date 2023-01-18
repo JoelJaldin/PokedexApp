@@ -1,9 +1,13 @@
-<h1>Pokemones</h1>
+<nav class="navbar">
+  <%= image_tag "navbar_poke.jpg", width: 75 %>
+</nav>
+
+<h1 style="font-size:100px; color: #3564AE;">Pokemons</h1>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <% @pokemons.each do |pokemon| %>
   <div class="col">
-    <div class="card" style="width:25rem ; height:45rem;">
+    <div class="card" style="background-color: #DBB234; border-color: #3368B0;">
       <%= image_tag(pokemon[:photo]) %>
       <div class="card-body">
         <p class="card-text"><p>Nº. <%= pokemon[:id] %></p></li></p>
@@ -19,8 +23,11 @@
         <% end %>
         <h4>Abilities: <%= abilities.join(" and ") %> </h4></li></li></p>
         <p class="card-text"><h4>Weight: <%= pokemon[:weight] %></h4></li></p>
-        <a href="#" class="card-link"><a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">Más info</a></a>
+        <a href="#" class="card-link"><a href="http://localhost:3000/pokedex/<%= pokemon[:id] %>">More info</a></a>
       </div>
     </div>
   </div>
   <% end %>
+
+  <div class="paginate"><%= paginate @pokemons, :remote => true %>
+  </div>
