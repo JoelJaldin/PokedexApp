@@ -12,6 +12,7 @@ gem "sprockets-rails"
 
 # Paginate
 gem "kaminari"
+gem 'bootstrap5-kaminari-views'
 
 
 # HTTP API

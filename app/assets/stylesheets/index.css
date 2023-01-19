@@ -3,13 +3,13 @@
 
 h1 {
   text-align: center;
-  height: 250px;
+  height: 200px;
   text-decoration: underline;
 }
 
 .card {
   width:25rem;
-  height:45rem;
+  height:20rem;
   background-color: #DBB234;
   border-radius: 5%;
   box-shadow: 10px 10px 40px -28px #000;
@@ -17,6 +17,6 @@ h1 {
 }
 
 .paginate {
-  font-size: 50px;
-  margin-left: 50%;
+  margin-left: 40%;
+  padding-top: 5%;
 }

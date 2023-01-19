@@ -30,7 +30,7 @@ class PokedexController < ApplicationController
     response = JSON.parse response, symbolize_names: true
     @poki = {
       name: response[:species][:name],
-      photo: response[:sprites][:other][:"official-artwork"][:front_default],
+      photo: response[:sprites][:other][:dream_world][:front_default],
       abilities: response[:abilities],
       types: response[:types],
       weight: response[:weight],
