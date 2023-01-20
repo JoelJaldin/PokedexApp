@@ -6,7 +6,7 @@
 <div class="container d-flex justify-content-center">
   <div class="card" style="background-color: #DBB234; border-color: #3368B0">
 
-    <%= image_tag(@poki[:photo])%>
+    <%= image_tag(@poki[:photo] || "no_image_pokedex.jpg")  %>
 
     <div class="card-body">
       <h1 class="card-title" style="height: 75px ; color: #3564AE"><%= @poki[:name].capitalize %></h1>
@@ -15,11 +15,12 @@
       <h4>Description:</h4> <p><%=@poki[:description] %></p>
 
     <ul class="list-group list-group-flush">
-
+    <% if @poki[:evolution] != "" %>
       <h4>Evolution: </h4>
-      <p><%= @poki[:evolution][:chain][:species][:name] %>
-      <%= @poki[:evolution][:chain][:evolves_to][0][:species][:name] rescue nil %>
-      <%= @poki[:evolution][:chain][:evolves_to][0][:evolves_to][0][:species][:name] rescue nil %> </p>
+      <p><%= @poki[:evolution][:chain][:species][:name].capitalize %>
+      <%= @poki[:evolution][:chain][:evolves_to][0][:species][:name].capitalize rescue nil %>
+      <%= @poki[:evolution][:chain][:evolves_to][0][:evolves_to][0][:species][:name].capitalize rescue nil %> </p>
+      <% end %>
 
         <% abilities = [] %>
         <% @poki[:abilities].each do |ability|%>

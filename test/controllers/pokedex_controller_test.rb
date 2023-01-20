@@ -1,18 +1,25 @@
-require "test_helper"
+require 'test_helper'
 
 class PokedexControllerTest < ActionDispatch::IntegrationTest
   test "should get home" do
-    get pokedex_home_url
-    assert_response :success
-  end
-
-  test "should get index" do
-    get pokedex_index_url
+    get root_path
     assert_response :success
   end
 
   test "should get show" do
-    get pokedex_show_url
+    get show_path(8)
     assert_response :success
   end
+
+  test "visiting the home" do
+    get root_path
+    assert_select "button", text: "Bienvenido a la Pokedex"
+  end
+
+  test "visiting the show" do
+    get show_path(1)
+    assert_select "h1", text: "Bulbasaur"
+  end
+
+
 end

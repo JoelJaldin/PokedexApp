@@ -9,7 +9,7 @@
 <% @pokemons.each do |pokemon| %>
   <div class="col">
     <div class="card w-100" style="background-color: #DBB234; border-color: #3368B0;">
-      <%= image_tag(pokemon[:photo]) %>
+      <%= image_tag(pokemon[:photo] || "no_image_pokedex.jpg")  %>
       <div class="card-body">
         <p class="card-text"><p>Nº. <%= pokemon[:id] %></p></li></p>
         <h5 class="card-title"><h5 class="card-title"><h2><%= pokemon[:name].capitalize %> </h2></h5></h5>
