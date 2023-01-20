@@ -2,21 +2,9 @@ class PokedexController < ApplicationController
   def home
   end
 
-  def index
-
-    if params[:page]
-      offset = (params[:page].to_i-1)*9
-      @pokemons = fetch_pokemons(offset)
-      @pokemons = Kaminari.paginate_array(@pokemons, total_count: 1279).page(params[:page]).per(9)
-    else
-      @pokemons = fetch_pokemons(0)
-      @pokemons = Kaminari.paginate_array(@pokemons, total_count: 1279).page(params[:page]).per(9)
-
-    end
-  end
-
   def fetch_pokemons(offset)
     @pokemons = []
+
     @pokemones = get_pokemons(offset)[:results]
     @pokemones.each do |poke|
       response = HTTP.get(poke[:url])
@@ -30,9 +18,21 @@ class PokedexController < ApplicationController
         id: response[:id]
       }
       @pokemons << poki
-
     end
     @pokemons
+  end
+
+  def index
+    # Pagination
+    if params[:page]
+      offset = (params[:page].to_i-1)*9
+      @pokemons = fetch_pokemons(offset)
+      @pokemons = Kaminari.paginate_array(@pokemons, total_count: 1279).page(params[:page]).per(9)
+    else
+      @pokemons = fetch_pokemons(0)
+      @pokemons = Kaminari.paginate_array(@pokemons, total_count: 1279).page(params[:page]).per(9)
+
+    end
   end
 
   def show
@@ -53,12 +53,14 @@ class PokedexController < ApplicationController
     response_species_fetch = HTTP.get(@poki[:species_url])
     species_hash = JSON.parse response_species_fetch, symbolize_names: true
 
+    # Solution to pokemons without description and use the correct language
     if species_hash[:flavor_text_entries] != []
       @poki[:description] = species_hash[:flavor_text_entries].find{ |entry| entry[:language][:name] == "en" }[:flavor_text]
     else
       @poki[:description] = "no description"
     end
 
+    # Solution to pokemons without "evolution"
     if species_hash[:evolution_chain] != nil
     evolution_url = species_hash[:evolution_chain][:url]
     response_evolution_fetch = HTTP.get(evolution_url)

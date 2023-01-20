@@ -6,6 +6,7 @@
 <div class="container d-flex justify-content-center">
   <div class="card" style="background-color: #DBB234; border-color: #3368B0">
 
+    <%# Image_tag and solution to pokemons without img %>
     <%= image_tag(@poki[:photo] || "no_image_pokedex.jpg")  %>
 
     <div class="card-body">
@@ -15,6 +16,8 @@
       <h4>Description:</h4> <p><%=@poki[:description] %></p>
 
     <ul class="list-group list-group-flush">
+
+     <%# Solution to pokemons without evolutions %>
     <% if @poki[:evolution] != "" %>
       <h4>Evolution: </h4>
       <p><%= @poki[:evolution][:chain][:species][:name].capitalize %>
