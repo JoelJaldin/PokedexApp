@@ -74,7 +74,6 @@ class PokedexController < ApplicationController
   private
 
   def get_pokemons(offset)
-    # last_pokemon = @pokemons&.last&[:id] || 0
     fetch_api = HTTP.get("https://pokeapi.co/api/v2/pokemon?limit=9&offset=#{offset}")
     api_hash = JSON.parse fetch_api, symbolize_names: true
 
