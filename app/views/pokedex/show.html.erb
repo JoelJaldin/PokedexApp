@@ -1,17 +1,42 @@
+<div class="navbar mx-3">
+  <a href="http://localhost:3000/pokedex"><%= image_tag "navbar_poke.jpg", width: 50, class:"rounded-circle" %> </a>
+</div>
+<button type="button" class="btn btn-outline-primary mt-1" style="width: 5% ; margin-left: 90%"><%= link_to "Back", index_path %></button>
+
 <div class="container d-flex justify-content-center">
-  <div class="card m-0" style="width: 30rem">
-    <%= image_tag(@poki[:photo]) %>
+  <div class="card" style="background-color: #DBB234; border-color: #3368B0">
+
+    <%= image_tag(@poki[:photo])%>
+
     <div class="card-body">
-      <h1 class="card-title"><%= @poki[:name].capitalize %></h1>
-      <p class="card-text"> <h3>Description:</h3> <%=@poki[:description] %></p>
-    </div>
+      <h1 class="card-title" style="height: 75px ; color: #3564AE"><%= @poki[:name].capitalize %></h1>
+
+      <p class="card-text"> </p>
+      <h4>Description:</h4> <p><%=@poki[:description] %></p>
+
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"> <h3>Weight: </h3> <%=@poki[:weight]%></li>
-      <li class="list-group-item"><h3>Types: </h3> <%=@poki[:types]%></li>
-      <li class="list-group-item"><h3>Abilities: </h3><%=@poki[:abilities]%></li>
-      <li class="list-group-item"><h3>Evolution: </h3><%=@poki[:evolution]%></li>
+
+      <h4>Evolution: </h4>
+      <p><%= @poki[:evolution][:chain][:species][:name] %>
+      <%= @poki[:evolution][:chain][:evolves_to][0][:species][:name] rescue nil %>
+      <%= @poki[:evolution][:chain][:evolves_to][0][:evolves_to][0][:species][:name] rescue nil %> </p>
+
+        <% abilities = [] %>
+        <% @poki[:abilities].each do |ability|%>
+        <% abilities << ability[:ability][:name].capitalize %>
+        <% end %>
+        <h4>Abilities: </h4> <p><%= abilities.join(", ") %> </p>
+
+        <% types = [] %>
+        <% @poki[:types].each do |type| %>
+        <% types << type[:type][:name].capitalize %>
+        <% end %>
+        <h4>Types: </h4> <p><%= types.join(", ") %> </p>
+
+
+
+        <h4>Weight: </h4> <p><%=@poki[:weight]%> lb </p>
     </ul>
-    <div class="card-body">
-    </div>
+  </div>
   </div>
 </div>

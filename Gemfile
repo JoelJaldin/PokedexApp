@@ -14,6 +14,9 @@ gem "sprockets-rails"
 gem "kaminari"
 gem 'bootstrap5-kaminari-views'
 
+# Test
+gem 'minitest', '~> 5.17'
+
 
 # HTTP API
 gem 'http', '~> 5.1', '>= 5.1.1'

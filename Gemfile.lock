@@ -252,6 +252,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kaminari
+  minitest (~> 5.17)
   puma (~> 5.0)
   rails (~> 7.0.4)
   selenium-webdriver
